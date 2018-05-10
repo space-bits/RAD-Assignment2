@@ -10,6 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+# Can we use the devise gem? otherwise we will have to use bcrypt and custom validation
+
 ActiveRecord::Schema.define(version: 2018_05_01_063528) do
 
   create_table "news", force: :cascade do |t|
