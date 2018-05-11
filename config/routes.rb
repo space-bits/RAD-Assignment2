@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   root 'news#index'
 
   resources :users
