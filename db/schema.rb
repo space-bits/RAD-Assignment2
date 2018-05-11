@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2018_05_11_014430) do
 
-# Can we use the devise gem? otherwise we will have to use bcrypt and custom validation
-
-ActiveRecord::Schema.define(version: 2018_05_01_063528) do
+  create_table "comments", force: :cascade do |t|
+    t.integer "News_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["News_id"], name: "index_comments_on_News_id"
+  end
 
   create_table "news", force: :cascade do |t|
     t.string "by"
