@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
   # TODO: Link a comment to a user id that posted it
   def create
-    # when creating a new comment, attach it to a post id and
-    # redirect to the post
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create!(comment_params)
-    redirect_to @post
+    # when creating a new comment, attach it to a news id and
+    # redirect to the news article
+    @news = News.find(params[:News_id])
+    @comment = @news.comments.create!(comment_params)
+    redirect_to @news
   end
 
   # decalre a new private method to allow that a comment requires a body

@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>By:</strong>
-  <%= @news.by %>
+  <strong>Title:</strong>
+  <%= @news.title %>
+</p>
+
+
+<p>
+  <strong>Url:</strong>
+  <%= @news.url %>
 </p>
 
 <p>
@@ -11,14 +17,17 @@
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @news.url %>
+  <strong>By:</strong>
+  <%= @news.by %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @news.title %>
-</p>
+<%= form_for [@news, Comment.new] do |f| %>
+  <p>
+    <%= f.label :body, "Add a new comment!" %><br/>
+    <%= f.text_area :body %>
+  </p>
+  <p><%= f.submit "Add comment" %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_news_path(@news) %> |
 <%= link_to 'Back', news_index_path %>

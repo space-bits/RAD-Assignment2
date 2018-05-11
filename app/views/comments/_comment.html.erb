@@ -1,2 +1,8 @@
 <p>
-  <%= form do |f| %>
+  Posted <%= time_ago_in_words(comment.created_at) %> ago
+  <%= if !comment.created_at.eq(comment.updated_at) %>
+    <em>Editted <%= time_ago_in_words(comment.updated_at) %> ago</em>
+  <%= end %>
+  <%= comment.body %>
+  by <%= comment.Users_username %>
+</p>
