@@ -4,5 +4,5 @@ class News < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # validate that the fields must match regex
-  validates :body, :url, :title, presence: true
+  validates :text, :url, :title, presence: true
 end
