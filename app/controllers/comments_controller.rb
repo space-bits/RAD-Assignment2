@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
   # TODO: Link a comment to a user id that posted it
+
+  # when creating a new comment, attach it to a news id and
+  # redirect to the news article
   def create
-    # when creating a new comment, attach it to a news id and
-    # redirect to the news article
-    @news = News.find(params[:News_id])
+    # @user = User.find(params[:user_id])
+    @news = News.find(params[:news_id])
     @comment = @news.comments.create!(comment_params)
     redirect_to @news
   end
