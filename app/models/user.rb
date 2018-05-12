@@ -4,20 +4,22 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # validate the username
-  validates :username, length: {
+  validates :username, presence: true, length: {
     maximum: 25,
-      too_long: "Username must be between 3 and 25 characters"
+      too_long: "must be between 3 and 25 characters"
     }, length: {
     minimum: 3,
-      too_short: "Username must be between 3 and 25 characters"
+      too_short: "must be between 3 and 25 characters"
   }
 
   # validate the password
-  validates :password, length: {
+  validates :password, presence: true, length: {
     maximum: 25,
-      too_long: "Password must be between 3 and 25 characters"
+      too_long: "must be between 3 and 25 characters"
     }, length: {
     minimum: 3,
-      too_short: "Password must be between 3 and 25 characters"
+      too_short: "must be between 3 and 25 characters"
   }
+
+  validates :password_confirmation, presence: true
 end
