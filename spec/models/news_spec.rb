@@ -4,19 +4,19 @@ RSpec.describe News, type: :model do
   it 'should have a title' do
     news = News.new({"url"=>"https://...", "text"=>"Some text about the article"})
     news.valid?
-    expect(news[:title]).not_to eql(nil)
+    expect(news.errors.messages[:title]).to include "can't be blank"
   end
 
   it 'should have a url' do
     news = News.new({"title"=>"Article B", "text"=>"Some text about the article"})
     news.valid?
-    expect(news[:url]).not_to eql(nil)
+    expect(news.errors.messages[:url]).to include "can't be blank"
   end
 
   it 'should have some text' do
     news = News.new({"title"=>"Article B", "url"=>"http://..."})
     news.valid?
-    expect(news[:text]).not_to eql(nil)
+    expect(news.errors.messages[:text]).to include "can't be blank"
   end
 
   it 'should have a title that is a string' do

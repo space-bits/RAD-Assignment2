@@ -45,23 +45,23 @@ RSpec.describe User, type: :model do
     it 'should be at least 10 characters' do
       user = User.new({"username"=>"abc","password"=>"Aa!345678"})
       user.valid?
-      expect(user.errors.messages[:password]).to include "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number."
+      expect(user.errors.messages[:password]).to include "Password must be at least 10 characters."
     end
 
     it 'should contain at least 1 special characters' do
-      user = User.new({"username"=>"abc","password"=>"Aa2345678"})
+      user = User.new({"username"=>"abc","password"=>"Aa2345678000"})
       user.valid?
       expect(user.errors.messages[:password]).to include "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number."
     end
 
     it 'should contain at least 1 uppercase letter' do
-      user = User.new({"username"=>"abc","password"=>"0a!345678"})
+      user = User.new({"username"=>"abc","password"=>"0a!345678000"})
       user.valid?
       expect(user.errors.messages[:password]).to include "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number."
     end
 
     it 'should contain at least 1 lowercase letter' do
-      user = User.new({"username"=>"abc","password"=>"A1!345678"})
+      user = User.new({"username"=>"abc","password"=>"A1!345678000"})
       user.valid?
       expect(user.errors.messages[:password]).to include "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number."
     end
