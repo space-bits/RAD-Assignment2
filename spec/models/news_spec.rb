@@ -1,9 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe News, type: :model do
+  describe 'by' do
+    it 'should be assigned to a user in the database' do
+      
+    end
+  end
+
   describe 'title' do
-    it 'should not be blank' do
+    it 'should not be nil' do
       news = News.new({"url"=>"https://...", "text"=>"Some text about the article"})
+      news.valid?
+      expect(news.errors.messages[:title]).to include "Title can't be blank"
+    end
+
+    it 'should not be blank' do
+      news = News.new({"url"=>"https://...", "title"=>"", "text"=>"Some text about the article"})
       news.valid?
       expect(news.errors.messages[:title]).to include "Title can't be blank"
     end
@@ -30,8 +42,14 @@ RSpec.describe News, type: :model do
   end
 
   describe 'text' do
-    it 'should not be empty' do
+    it 'should not be nil' do
       news = News.new({"title"=>"Article B", "url"=>"http://..."})
+      news.valid?
+      expect(news.errors.messages[:text]).to include "Text can't be blank"
+    end
+
+    it 'should not be empty' do
+      news = News.new({"title"=>"Article B", "text"=>"", "url"=>"http://..."})
       news.valid?
       expect(news.errors.messages[:text]).to include "Text can't be blank"
     end
