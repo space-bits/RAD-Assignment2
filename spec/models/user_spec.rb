@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     it 'should only contain alphanumeric characters' do
       user = User.new({"username"=>"abc0_-$", "password"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username can only contain letters, digits, dashes and underscores"
+      expect(user.errors.messages[:username]).to include "Username can only contain letters, digits, dashes, and underscores"
     end
 
     it 'should at most 15 characters' do
