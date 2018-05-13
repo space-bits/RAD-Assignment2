@@ -8,7 +8,9 @@
         <%= @user.username %>
       </h1>
       <p>
-        <%= @user.gravatar %>
+        <%= if @user.grav_url %>
+          <img src="<%= @user.grav_url %>" />
+        <%= end %>
       </p>
     </section>
   </aside>
