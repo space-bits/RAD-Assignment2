@@ -10,7 +10,9 @@ gem 'sqlite3', group: [:development, :test]
 # user postgresql in production
 gem 'pg', '~> 0.18', group: :production
 
+# install bootstrap and jquery
 gem 'bootstrap'
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
