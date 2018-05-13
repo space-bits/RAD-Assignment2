@@ -8,9 +8,11 @@
         <%= @user.username %>
       </h1>
       <p>
-        <%= if @user.grav_url %>
-          <img src="<%= @user.grav_url %>" />
-        <%= end %>
+        <!--
+          render the users gravatar here if they have one.
+          otherwise render an upload message
+        -->
+        <%= prof_pic_for(@user) %>
       </p>
     </section>
   </aside>
