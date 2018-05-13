@@ -5,7 +5,7 @@ module SessionsHelper
 
   def current_user
     # assign the current user if one exists in the database matching the username stored in the session
-    @current_user ||= User.find_by(username: session[:username])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   # if the current user is set then return true
