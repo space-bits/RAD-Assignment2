@@ -13,3 +13,25 @@
  */
 
 // @import 'bootstrap';
+
+
+.nav {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-item {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+// Form css
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
