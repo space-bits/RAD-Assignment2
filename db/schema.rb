@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_13_031605) do
+ActiveRecord::Schema.define(version: 2018_05_13_031734) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "news_id"
@@ -29,7 +29,13 @@ ActiveRecord::Schema.define(version: 2018_05_13_031605) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'grav_url' for column 'string'
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "grav_url"
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
 
 end
