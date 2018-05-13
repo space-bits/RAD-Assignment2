@@ -8,7 +8,8 @@
 
 users = User.create(
   [
-    {}
+    {username: 'user', password: 'Abc!2', password_confirmation: 'Abc!2'},
+    {username: 'user2', password: 'Abc!2', password_confirmation: 'Abc!2'}
   ]
 )
 

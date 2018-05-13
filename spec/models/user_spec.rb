@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     it 'should not have spaces' do
       user = User.new({"username"=>"ab c$", "password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username cannot contain spaces"
+      expect(user.errors.message[:username]).to include "Username cannot contain spaces"
     end
 
     it 'should begin with a letter' do
