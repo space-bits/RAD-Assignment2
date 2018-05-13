@@ -6,21 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.delete_all
+
 users = User.create(
   [
-    {username: 'user', password: 'Abc!2', password_confirmation: 'Abc!2'},
-    {username: 'user2', password: 'Abc!2', password_confirmation: 'Abc!2'}
+    {username: 'user', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now},
+    {username: 'user2', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now}
   ]
 )
 
-news = News.create(
-  [
-    {}
-  ]
-)
-
-comments = Comment.create(
-  [
-    {}
-  ]
-)
+# news = News.create(
+#   [
+#     {}
+#   ]
+# )
+#
+# comments = Comment.create(
+#   [
+#     {}
+#   ]
+# )
