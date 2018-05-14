@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
@@ -11,11 +10,13 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       # generate an error message
+      
+      redirect_to root_url
     end
   end
 
   def destroy
     log_out
-    redirect_to "/"
+    redirect_to root_url
   end
 end
