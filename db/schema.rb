@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_05_13_031734) do
     t.datetime "updated_at", null: false
     t.index ["news_id"], name: "index_comments_on_news_id"
   end
-
+  
   create_table "news", force: :cascade do |t|
     t.string "by"
     t.text "text"

@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       # generate an error message
-      
-      redirect_to root_url
+
+      redirect_to login_path
     end
   end
 

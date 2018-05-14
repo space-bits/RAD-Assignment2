@@ -6,7 +6,7 @@ module UsersHelper
   def prof_pic_for(user)
     # we don't need an id for the user's grav url.
     # prof_pic_id = Digest::MD5::hexdigest(user.username)
-    if user.grav_url.nil? or user.grav_url.empty?
+    if user.grav_url.nil?
       image_tag("", alt: user.username, class: "gravatar")
     else
       prof_pic_url = user.grav_url
