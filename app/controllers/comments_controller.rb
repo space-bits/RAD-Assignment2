@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    # only get the 20 most recent comments
+    @comments = Comment.find(:all, :order => "id desc", :limit => 20).reverse
   end
 
   # may be unnecesary
