@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     else
       # generate an error message
 
-      redirect_to login_path
+      redirect_to login_url
     end
   end
 
