@@ -10,6 +10,11 @@ class CommentsController < ApplicationController
     redirect_to @news
   end
 
+  def show
+    @comments = Comment.all
+    
+  end
+
   # decalre a new private method to allow that a comment requires a body
   private
 
