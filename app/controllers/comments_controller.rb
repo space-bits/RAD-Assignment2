@@ -12,9 +12,16 @@ class CommentsController < ApplicationController
     redirect_to @news
   end
 
-  def show
+  # GET /comments
+  # GET /comments.json
+  def index
     @comments = Comment.all
-    
+  end
+
+  # may be unnecesary
+  # GET /comments/1
+  # GET /comments/1.json
+  def show
   end
 
   # decalre a new private method to allow that a comment requires a body

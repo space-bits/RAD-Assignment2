@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/comments', to: 'comments#show'
+  get '/comments', to: 'comments#index'
+
+  resources :comments, only: [:show]
 
   resources :users
   resources :news do
