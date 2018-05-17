@@ -1,7 +1,6 @@
 class NewsController < ApplicationController
   # don't require login to view news, only to create, edit, and destroy
   skip_before_action :require_login, only: [:show]
-  before_action :current_user, only: [:show]
 
   # GET /news
   # GET /news.json
