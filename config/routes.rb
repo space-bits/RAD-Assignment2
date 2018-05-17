@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/comments', to: 'comments#index'
-
-  resources :comments, only: [:show]
-
+  get '/comments20', to: 'comments#show_top_20'
+  
   resources :users
   resources :news do
     resources :comments, only: [:create]
