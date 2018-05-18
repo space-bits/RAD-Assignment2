@@ -15,11 +15,11 @@ users = User.create(
   ]
 )
 
-# news = News.create(
-#   [
-#     {}
-#   ]
-# )
+news = News.create(
+  [
+    {}
+  ]
+)
 
 # comments = Comment.create(
 #   [
