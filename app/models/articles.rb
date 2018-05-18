@@ -1,5 +1,5 @@
-class News < ApplicationRecord
-  # specify that if the news item that the comments belong to is destroyed, so
+class Article < ApplicationRecord
+  # specify that if the articles item that the comments belong to is destroyed, so
   # are they
   has_many :comments, dependent: :destroy
 

@@ -1,6 +1,6 @@
-class CreateNews < ActiveRecord::Migration[5.1]
+class Createarticles < ActiveRecord::Migration[5.1]
   def change
-    create_table :news do |t|
+    create_table :articles do |t|
       t.string :by
       t.text :text
       t.string :url

@@ -3,13 +3,13 @@ class CommentsController < ApplicationController
   skip_before_action :require_login, only: [:show, :show_top_20]
   # TODO: Link a comment to a user id that posted it
 
-  # when creating a new comment, attach it to a news id and
-  # redirect to the news article
+  # when creating a new comment, attach it to a articles id and
+  # redirect to the articles article
   def create
     # @user = User.find(params[:user_id])
-    @news = News.find(params[:news_id])
-    @comment = @news.comments.create!(comment_params)
-    redirect_to @news
+    @articles = Article.find(params[:articles_id])
+    @comment = @articles.comments.create!(comment_params)
+    redirect_to @articles
   end
 
   # GET /comments

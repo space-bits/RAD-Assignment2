@@ -15,7 +15,7 @@ users = User.create(
   ]
 )
 
-news = News.create(
+articles = articles.create(
   [
     {by: 'Rob', text: 'There was once a gov\' conspiracy', url: 'Htpps://abc', title: 'Flat earth. p1'},
     {by: 'Rob', text: 'To keep the earth\'s flat nature', url: 'Https://', title: 'Flat earth. p2'},
@@ -26,9 +26,9 @@ news = News.create(
 
 # comments = Comment.create(
 #   [
-#     {news_id: 1, body: 'Hi'},
-#     {news_id: 2, body: 'abc'},
-#     {news_id: 3, body: '123123'},
-#     {news_id: 4, body: 'xyz'}
+#     {articles_id: 1, body: 'Hi'},
+#     {articles_id: 2, body: 'abc'},
+#     {articles_id: 3, body: '123123'},
+#     {articles_id: 4, body: 'xyz'}
 #   ]
 # )
