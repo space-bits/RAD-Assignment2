@@ -3,16 +3,6 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def current_user
-    # assign the current user if one exists in the database matching the username stored in the session
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
-
-  # if the current user is set then return true
-  def logged_in?
-    !current_user.nil?
-  end
-
   # set the cookie for the user to be encrypted for the id, and
   # set the remember_token to that of the users
   def remember(user)
@@ -20,6 +10,30 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:rememberToken] = user.rememberToken
   end
+
+  def current_user
+    # assign the current user if one exists in the database
+    # matching the username stored in the session
+    # set the uid to the one stored in the session if it exists
+    if(user_id = session[:user_id])
+      # if the session has a user id set then
+      @current_user ||= User.find_by(id: user_id)
+    elsif( user_id = cookies.signed[:user_id] )
+      user = User.find_by(id: user_id)
+      # log the user in if they exist in the db and set the current_user
+      # to be the one we found in the db from the id stored in the cookie
+      if user && user.authenticated?(cookies[:rememberToken])
+        log_in user
+        @current_user = user
+      end
+    end
+  end
+
+  # if the current user is set then return true
+  def logged_in?
+    !current_user.nil?
+  end
+
 
   # delete the user id fom session and set current user nil
   def log_out
@@ -32,12 +46,6 @@ module SessionsHelper
      flash[:error] = "You must be logged in to access this section"
      redirect_to login_url # halts request cycle
    end
-  end
-
-  def authenticate
-    unless logged_in?
-
-    end
   end
 
 end

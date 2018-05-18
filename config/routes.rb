@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   root 'news#index'
 
@@ -10,8 +11,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/comments', to: 'comments#index'
   get '/comments20', to: 'comments#show_top_20'
-  
-  resources :users
+
+  # resources :users
+
   resources :news do
     resources :comments, only: [:create]
   end
