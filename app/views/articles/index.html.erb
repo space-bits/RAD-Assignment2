@@ -20,9 +20,9 @@
           <td><%= article.text %></td>
           <td><%= article.url %></td>
           <td><%= article.title %></td>
-          <td><%= link_to 'Show', articles %></td>
-          <td><%= link_to 'Edit', edit_articles_path(articles) %></td>
-          <td><%= link_to 'Destroy', articles, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', article %></td>
+          <td><%= link_to 'Edit', edit_article_path(article) %></td>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -30,4 +30,4 @@
 </div>
 <br>
 
-<%= link_to 'New articles', new_articles_path %>
+<%= link_to 'New articles', new_article_path %>
