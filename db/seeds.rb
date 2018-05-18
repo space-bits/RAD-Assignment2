@@ -15,7 +15,7 @@ users = User.create(
   ]
 )
 
-articles = articles.create(
+articles = Article.create(
   [
     {by: 'Rob', text: 'There was once a gov\' conspiracy', url: 'Htpps://abc', title: 'Flat earth. p1'},
     {by: 'Rob', text: 'To keep the earth\'s flat nature', url: 'Https://', title: 'Flat earth. p2'},
