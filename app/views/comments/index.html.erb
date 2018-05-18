@@ -13,10 +13,10 @@
     </thead>
 
     <tbody>
-      <% @comments.each do |comments| %>
+      <% @comments.each do |comment| %>
         <tr>
-          <td><%= comments.body %></td>
-          <td>Posted <%= @comment.created_at %> ago</td>
+          <td><%= comment.body %></td>
+          <td>Posted <%= time_ago_in_words comment.created_at %> ago</td>
         </tr>
       <% end %>
     </tbody>

@@ -1,4 +1,4 @@
-<%= form_with(model: articles, local: true) do |form| %>
+<%= form_with(model: article, local: true) do |form| %>
   <% if articles.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(articles.errors.count, "error") %> prohibited this articles from being saved:</h2>
@@ -14,7 +14,7 @@
   <!-- Set this field to hidden and use the current users username to save -->
   <!-- Create a new hidden field to pass the username to the db -->
   <div class="field">
-    <%= form.hidden_field :by, id: current_user.id %>
+    <%= form.hidden_field :by, id: session[:user.username] %>
   </div>
 
   <div class="field">
