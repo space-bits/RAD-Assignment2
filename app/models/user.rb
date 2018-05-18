@@ -61,4 +61,9 @@ class User < ApplicationRecord
     BCrypt::Password.new(rememberDigest).is_password?(rememberToken)
   end
 
+
+  def to_s
+    "#{self.id} : #{self.username}"
+  end
+
 end

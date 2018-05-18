@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     # only get the 20 most recent comments
-    @comments = Comment.all # "created_at desc", :limit => 20)
+    @comments = Comment.all.limit(20).order(:created_at).reverse
   end
 
   # may be unnecesary
@@ -35,7 +35,8 @@ class CommentsController < ApplicationController
   # decalre a new private method to allow that a comment requires a body
   private
 
-  def comment_params
-    params.require(:comment).permit(:body)
-  end
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
+
 end
