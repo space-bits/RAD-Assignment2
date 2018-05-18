@@ -14,12 +14,12 @@
     </thead>
 
     <tbody>
-      <% @articles.each do |articles| %>
+      <% @articles.each do |article| %>
         <tr>
-          <td><%= articles.by %></td>
-          <td><%= articles.text %></td>
-          <td><%= articles.url %></td>
-          <td><%= articles.title %></td>
+          <td><%= article.by %></td>
+          <td><%= article.text %></td>
+          <td><%= article.url %></td>
+          <td><%= article.title %></td>
           <td><%= link_to 'Show', articles %></td>
           <td><%= link_to 'Edit', edit_articles_path(articles) %></td>
           <td><%= link_to 'Destroy', articles, method: :delete, data: { confirm: 'Are you sure?' } %></td>

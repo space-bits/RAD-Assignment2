@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe articles, type: :model do
+RSpec.describe Article, type: :model do
   describe 'by' do
     it 'should be assigned to a user in the database' do
-      
+
     end
   end
 

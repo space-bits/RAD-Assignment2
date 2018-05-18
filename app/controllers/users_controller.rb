@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
-        remember user
+        remember @user
         format.html { redirect_to @user, notice: 'Account successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

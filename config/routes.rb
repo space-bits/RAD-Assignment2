@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-  get '/news', to: 'articles#show'
+  get '/news', to: 'articles#index'
+  get '/news/:id', to: 'articles#show'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'

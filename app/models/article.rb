@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   # are they
   has_many :comments, dependent: :destroy
 
-  # validate that the fields must match regex
+  # validate that the fields must be present
+  # TODO: add validation
   validates :text, :url, :title, presence: true
 end
