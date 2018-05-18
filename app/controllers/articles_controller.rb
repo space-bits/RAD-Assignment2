@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
+    @comments = Comment.all.where(article_id: @article.id)
+    @comments.append(Comment.find(@article.id))
   end
 
   # GET /articles/new

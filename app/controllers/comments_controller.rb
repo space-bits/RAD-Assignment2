@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
   # when creating a new comment, attach it to a articles id and
   # redirect to the articles article
   def create
-    # @user = User.find(params[:user_id])
-    @articles = Article.find(params[:articles_id])
+    @articles = Article.find(params[:article_id])
     @comment = @articles.comments.create!(comment_params)
     redirect_to @articles
   end
