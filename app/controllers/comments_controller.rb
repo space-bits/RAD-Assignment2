@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     # only get the 20 most recent comments
-    @comments = Comment.all.limit(20).order(:created_at).reverse
+    @comments = Comment.all#.limit(20).order(:created_at).reverse
   end
 
   # may be unnecesary
