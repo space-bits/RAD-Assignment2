@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   # local remember_token var
-  attr_accessor :remember_token
+  attr_accessor :rememberToken
 
   # validate the username
   validates :username, length: {
@@ -48,13 +48,14 @@ class User < ApplicationRecord
 
   # Remembers a user in the database for use in persistent sessions.
   def remember
-    self.remember_token = User.new_token
-    update_attribute(:rememberDigest, User.digest(remember_token))
+    self.rememberToken = User.new_token
+    update_attribute(:rememberDigest, User.digest(rememberToken))
   end
 
   # Returns true if the given token matches the digest.
+  # if true then we know that the user is authed
   def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(rememberDigest).is_password?(rememberToken)
   end
 
 end
