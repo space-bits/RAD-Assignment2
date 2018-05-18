@@ -5,5 +5,6 @@ class Article < ApplicationRecord
 
   # validate that the fields must be present
   # TODO: add validation
-  validates :text, :url, :title, presence: true
+  validates :text, :url, :title,
+    presence: true
 end
