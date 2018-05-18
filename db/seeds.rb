@@ -10,14 +10,17 @@ User.delete_all
 
 users = User.create(
   [
-    {username: 'user', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now},
-    {username: 'user2', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now}
+    {username: 'Rob', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now},
+    {username: 'Gabe', password: 'Abc!299282828', password_confirmation: 'Abc!299282828', created_at: Time.now, updated_at: Time.now}
   ]
 )
 
 news = News.create(
   [
-    {}
+    {by: 'Rob', text: 'There was once a gov\' conspiracy', url: 'Htpps://abc', title: 'Flat earth. p1'},
+    {by: 'Rob', text: 'To keep the earth\'s flat nature', url: 'Https://', title: 'Flat earth. p2'},
+    {by: 'Gabe', text: 'Butterflies are the greatest alien to invade Earth', url: 'https://google.com', title: 'Butterflies or Aliens p1'},
+    {by: 'Gabe', text: 'In fact, the only reason that we don\'t already know, is because...', url: 'https://google.com', title: 'Butterflies or Aliens p2'},
   ]
 )
 
