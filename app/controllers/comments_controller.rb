@@ -6,9 +6,15 @@ class CommentsController < ApplicationController
   # when creating a new comment, attach it to a articles id and
   # redirect to the articles article
   def create
-    @articles = Article.find(params[:article_id])
-    @comment = @articles.comments.create!(comment_params)
-    redirect_to @articles
+    @article = Article.find(params[:article_id])
+    if(@comment = @article.comments.create!(comment_params))
+      # format.html { redirect_to @article, notice: 'Comment added!' }
+      # format.json { render :show, status: :created, location: @article }
+      redirect_to @article
+    else
+      format.html { render :show }
+      format.json { render json: @article.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /comments
@@ -22,13 +28,6 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
-  end
-
-  def show_top_20
-    # write an active record query to return the last 20 or so in terms of date created
-    @comments = Comment.all.first
-    # render a view with top 20. maybe just rewrite the index to do this
-    redirect_to comments_url
   end
 
   # decalre a new private method to allow that a comment requires a body
