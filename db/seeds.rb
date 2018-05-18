@@ -20,12 +20,12 @@ users = User.create(
 #     {}
 #   ]
 # )
-#
-comments = Comment.create(
-  [
-    {news_id: 1, body: 'Hi'},
-    {news_id: 2, body: 'abc'},
-    {news_id: 3, body: '123123'},
-    {news_id: 4, body: 'xyz'}
-  ]
-)
+
+# comments = Comment.create(
+#   [
+#     {news_id: 1, body: 'Hi'},
+#     {news_id: 2, body: 'abc'},
+#     {news_id: 3, body: '123123'},
+#     {news_id: 4, body: 'xyz'}
+#   ]
+# )
