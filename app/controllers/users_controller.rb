@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_login
-  
+
   # GET /users
   # GET /users.json
   def index
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
+        remember user
         format.html { redirect_to @user, notice: 'Account successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
