@@ -13,6 +13,14 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # set the cookie for the user to be encrypted for the id, and
+  # set the remember_token to that of the users
+  def remember(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:rememberToken] = user.rememberToken
+  end
+
   # delete the user id fom session and set current user nil
   def log_out
     session.delete(:user_id)
@@ -28,7 +36,7 @@ module SessionsHelper
 
   def authenticate
     unless logged_in?
-      
+
     end
   end
 
