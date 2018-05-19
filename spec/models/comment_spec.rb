@@ -6,9 +6,6 @@ RSpec.describe Comment, type: :model do
      @comment = Comment.new(article_id: 1, body: "Abcdefasdj", user_id: 1)
    end
 
-   test 'should be valid' do
-   end
-
   describe 'body' do
     it 'should not be nil' do
       comment = Comment.new({"article_id"=>1, "user_id"=>1})

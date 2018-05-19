@@ -21,11 +21,11 @@
   <%= @article.by %>
 </p>
 
-<p>
-  <%= @comments.each do |comment| %>
+<%= @comments.each do |comment| %>
+  <P>
     <%= comment.body %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
 <%= form_for [@article, Comment.new] do |f| %>
   <p>
