@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.delete_all
-
 users = User.create(
   [
     {
@@ -70,6 +68,18 @@ articles = Article.create(
       text: 'The first man was not an American, but he was in fact a Russian',
       url: 'https://google.com',
       title: 'Russia winning space War'
+    },
+    {
+      by: 'Ben',
+      text: 'Lights are actually a way of controlling people\'s minds and convincing them to buy more lights.',
+      url: 'https://google.com',
+      title: 'Bright Idea'
+    },
+    {
+      by: 'Ben',
+      text: 'I admit that in my last post I was mistaken; it\'s not the lights that are out to get us, but in fact it\'s the sun',
+      url: 'https://google.com',
+      title: 'Dull Idea'
     }
   ]
 )
