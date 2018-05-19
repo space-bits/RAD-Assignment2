@@ -22,9 +22,9 @@ module SessionsHelper
       user = User.find_by(id: user_id)
       # log the user in if they exist in the db and set the current_user
       # to be the one we found in the db from the id stored in the cookie
+      log_in user
       if user && user.authenticated?(cookies[:rememberToken])
-        log_in user
-        @current_user = user
+        @current_user = user      
       end
     end
   end
@@ -34,7 +34,6 @@ module SessionsHelper
     !current_user.nil?
   end
 
-
   # delete the user id fom session and set current user nil
   def log_out
     session.delete(:user_id)
@@ -42,10 +41,10 @@ module SessionsHelper
   end
 
   def require_login
-   unless logged_in?
-     flash[:error] = "You must be logged in to access this section"
-     redirect_to login_url # halts request cycle
-   end
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_url # halts request cycle
+    end
   end
 
 end

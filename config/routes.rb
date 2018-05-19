@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:show, :edit, :new, :create]
+  resources :users#, only: [:show, :edit, :new, :create]
 
   root 'articles#index'
 
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/comments', to: 'comments#index'
-  get '/comments20', to: 'comments#show_top_20'
 
   resources :articles do
     resources :comments, only: [:create]
