@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -20,6 +19,12 @@
 <p>
   <strong>Author:</strong>
   <%= @article.by %>
+</p>
+
+<p>
+  <%= @comments.each do |comment| %>
+    <%= comment.body %>
+  <% end %>
 </p>
 
 <%= form_for [@article, Comment.new] do |f| %>
