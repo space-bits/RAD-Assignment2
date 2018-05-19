@@ -22,9 +22,9 @@ module SessionsHelper
       user = User.find_by(id: user_id)
       # log the user in if they exist in the db and set the current_user
       # to be the one we found in the db from the id stored in the cookie
+      log_in user
       if user && user.authenticated?(cookies[:rememberToken])
-        log_in user
-        @current_user = user
+        @current_user = user      
       end
     end
   end
