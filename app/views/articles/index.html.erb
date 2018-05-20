@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <h1>articles</h1>
-<div class="articles articles-table">
-  <table>
+<div class="articles">
+  <table class="table table-dark">
     <thead>
       <tr>
-        <th>By</th>
-        <th>Url</th>
-        <th>Title</th>
-        <th colspan="3"></th>
+        <th scope="col" colspan="3"></th>
+        <th scope="col">Title</th>
+        <th scope="col">By</th>
+        <th scope="col">Url</th>
       </tr>
     </thead>
 
     <tbody>
       <% @articles.each do |article| %>
         <tr>
+          <th scope="row"></th>
+          <td><%= article.id %></td>
+          <td><%= article.title %></td>
           <td><%= article.by %></td>
           <td><%= article.url %></td>
-          <td><%= article.title %></td>
           <td><%= link_to 'Show', article %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-<br>
 
 <%= link_to 'Post New Article', new_article_path %>
