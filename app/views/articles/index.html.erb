@@ -6,7 +6,6 @@
     <thead>
       <tr>
         <th>By</th>
-        <th>Text</th>
         <th>Url</th>
         <th>Title</th>
         <th colspan="3"></th>
@@ -17,7 +16,6 @@
       <% @articles.each do |article| %>
         <tr>
           <td><%= article.by %></td>
-          <td><%= article.text %></td>
           <td><%= article.url %></td>
           <td><%= article.title %></td>
           <td><%= link_to 'Show', article %></td>
