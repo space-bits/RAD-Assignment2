@@ -84,43 +84,52 @@ articles = Article.create(
 comments = Comment.create(
   [
     {
+      user_id: User.first,
       article_id: articles.first.id,
       body: 'Hi, I don\'t really buy this whole conspiracy theory argument.'
     },
     {
+      user_id: User.first,
       article_id: articles.first.id,
       body: 'Uhh, look, even if there /were/ a gov\'t conspiracy. What\'s the point?'
     },
     {
+      user_id: User.second,
       article_id: articles.second.id,
       body: 'This is ridiculous, I mean, where\'s the proof?!'
     },
     {
+      user_id: User.first,
       article_id: articles.second.id,
       body: 'Gotta hide the truth',
       created_at: Time.new(2018)
     },
     {
+      user_id: User.first,
       article_id: articles.third.id,
       body: 'It has always bothered me the way that butterflies \'evolve\'...',
       created_at: Time.new(2018)
     },
     {
+      user_id: User.first,
       article_id: articles.third.id,
       body: 'Butterflies, or not butterflies',
       created_at: Time.new(2018)
     },
     {
+      user_id: User.second,
       article_id: articles.fourth.id,
       body: 'Maybe the butterflies got to him too',
       created_at: Time.new(2011)
     },
     {
+      user_id: User.second,
       article_id: articles.fifth.id,
       body: 'I knew it I sent my own rocket to the Moon',
       created_at: Time.new(2012)
     },
     {
+      user_id: User.second,
       article_id: articles.fifth.id,
       body: 'Russia is the best',
       created_at: Time.new(2012)

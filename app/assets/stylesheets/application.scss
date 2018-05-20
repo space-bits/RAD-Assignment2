@@ -15,12 +15,14 @@
 // @import 'bootstrap';
 
 // comments
-#comment {
-  border-bottom-width: 20px;
-  border-color: black;
-  border-style: dotted;
+.comment {
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-style: solid;
   margin-bottom: 10px;
-  width: 100%;
+  width: 60%;
 }
 
 .nav {
