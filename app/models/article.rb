@@ -5,10 +5,10 @@ class Article < ApplicationRecord
 
   # validate that the fields must be present
   # TODO: add validation
-  validates :url, :title,
+  validates :url, 
     presence: true
 
-  validates :text,
+  validates :title,
     length: {in: 10..199},
     presence: true
 end
