@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = Comment.all.where(article_id: @article.id)
-    # @comments.append(Comment.find(@article.id))
   end
 
   # GET /articles/new
@@ -58,9 +57,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    Article.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to articles_index_url, notice: 'Removed your article!' }
+      format.html { redirect_to articles_url, notice: 'Removed your article!' }
       format.json { head :no_content }
     end
   end
