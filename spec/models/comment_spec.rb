@@ -6,6 +6,21 @@ RSpec.describe Comment, type: :model do
      @comment = Comment.new(article_id: 1, body: "Abcdefasdj", user_id: 1)
    end
 
+  describe 'validations' do
+    subject(:comment) { Comment.new }
+    before { comment.valid? }
+
+    it 'should validate presence of post' do
+      expect(comment.errors[:article_id].size).to be >= 1
+      expect(comment.errors.messages[:article_id]).to include "must exist"
+    end
+
+    it 'should validate presence of body' do
+      expect(comment.errors[:body].size).to be >= 1
+      expect(comment.errors.messages[:body]).to include "can't be blank"
+    end
+  end
+
   describe 'body' do
     it 'should not be nil' do
       comment = Comment.new({"article_id"=>1, "user_id"=>1})
@@ -36,13 +51,13 @@ RSpec.describe Comment, type: :model do
     it 'should not be nil' do
       comment = Comment.new({"body"=>"abcddef", "user_id"=>1})
       comment.valid?
-      expect(comment.errors.messages[:article_id]).to include "must belong to an article"
+      expect(comment.errors.messages[:article_id]).to include "must exist"
     end
 
     it 'should exist in the db' do
       comment = Comment.new({"article_id"=>500, "body"=>"abcasd", "user_id"=>1})
       comment.valid?
-      expect(comment.errors.messages[:article_id]).to include "must belong to an article"
+      expect(comment.errors.messages[:article_id]).to include "must exist"
     end
   end
 
@@ -50,13 +65,13 @@ RSpec.describe Comment, type: :model do
     it 'should not be nil' do
       comment = Comment.new({"article_id"=>2, "body"=>"abcddef"})
       comment.valid?
-      expect(comment.errors.messages[:user_id]).to include "must belong to a user"
+      expect(comment.errors.messages[:user_id]).to include "must exist"
     end
 
     it 'should exist in the db' do
       comment = Comment.new({"article_id"=>2, "body"=>"abcdef", "user_id"=>102222200})
       comment.valid?
-      expect(comment.errors.messages[:user_id]).to include "must belong to a user"
+      expect(comment.errors.messages[:user_id]).to include "must exist"
     end
   end
 

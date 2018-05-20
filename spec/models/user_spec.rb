@@ -5,38 +5,38 @@ RSpec.describe User, type: :model do
     it 'should not have spaces' do
       user = User.new({"username"=>"ab c$", "password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.message[:username]).to include "Username cannot contain spaces"
+      expect(user.errors.messages[:username]).to include "can only contain letters, digits, dashes, and underscores"
     end
 
     it 'should begin with a letter' do
       user = User.new({"username"=>"3abc$", "password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username must begin with a letter"
+      expect(user.errors.messages[:username]).to include "can only contain letters, digits, dashes, and underscores"
     end
 
     it 'should only contain alphanumeric characters' do
       user = User.new({"username"=>"abc0_-$", "password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username can only contain letters, digits, dashes, and underscores"
+      expect(user.errors.messages[:username]).to include "can only contain letters, digits, dashes, and underscores"
     end
 
     it 'should at most 15 characters' do
       user = User.new({"username"=>"abcdefghijklmnop","password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username must be between 2 and 15 characters"
+      expect(user.errors.messages[:username]).to include "must be between 2 and 15 characters"
     end
 
     it 'should be at least 2 characters' do
       user = User.new({"username"=>"a","password"=>"password", "password_confirmation"=>"password"})
       user.valid?
-      expect(user.errors.messages[:username]).to include "Username must be between 2 and 15 characters"
+      expect(user.errors.messages[:username]).to include "must be between 2 and 15 characters"
     end
 
     it 'should be unique' do
       user = User.new({"username"=>"a","password"=>"password", "password_confirmation"=>"password"})
       user2 = User.new({"username"=>"a","password"=>"password", "password_confirmation"=>"password"})
       user2.valid?
-      expect(user.errors.messages[:username]).to include "Username must be a unique username in the database"
+      expect(user.errors.messages[:username]).to include "must be a unique username in the database"
     end
   end
 

@@ -9,11 +9,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
       # generate an error message
-
-      redirect_to login_url
+      respond_to do |format|
+        format.html { redirect_to login_url, notice: 'Failed to login!' }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
