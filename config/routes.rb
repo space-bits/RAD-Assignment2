@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/news', to: 'articles#index'
   get '/news/:id', to: 'articles#show'
-  get '/comments', to: 'comments#index'
+  get '/newcomments', to: 'comments#index'
 
   get '/submit', to: 'articles#new'
   post '/submit', to: 'articles#create'
