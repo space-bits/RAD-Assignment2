@@ -1,10 +1,9 @@
 <!-- # render all of the comments here -->
 <p id="notice"><%= notice %></p>
 
-<div class="comments">
-  <% @comments.each do |comment| %>
-    <p class="comment-detail"><%= get_username(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> on <%= get_news_title(comment.article_id) %></p>
+<% @comments.each do |comment| %>
+  <div class="comment">
+    <p class="comment-detail"><%= get_username(comment.user_id) unless comment.user_id.nil? %> <%= time_ago_in_words(comment.created_at) %> on: <%= get_news_title(comment.article_id) %></p>
     <p class="comment-detail"><%= comment.body %></p>
-  <% end %>
-</div>
-<br>
+  </div>
+<% end %>
