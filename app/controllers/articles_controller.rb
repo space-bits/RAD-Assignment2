@@ -32,11 +32,11 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @articles.save
-        format.html { redirect_to @article, notice: 'articles article posted, more at 5.' }
-        format.json { render :show, status: :created, location: @article }
+        format.html { redirect_to @articles, notice: 'articles article posted, more at 5.' }
+        format.json { render :show, status: :created, location: @articles }
       else
         format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @articles.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,11 +46,11 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @articles.update(articles_params)
-        format.html { redirect_to @article, notice: 'This just in, articles has been changed!' }
-        format.json { render :show, status: :ok, location: @article }
+        format.html { redirect_to @articles, notice: 'This just in, articles has been changed!' }
+        format.json { render :show, status: :ok, location: @articles }
       else
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @articles.errors, status: :unprocessable_entity }
       end
     end
   end
