@@ -7,6 +7,10 @@ class CommentsController < ApplicationController
   # redirect to the articles article
   def create
     @article = Article.find(params[:article_id])
+    @user = User.find(session[:user_id])
+
+    fuck = 12
+    params[:user_id] = fuck
     if(@comment = @article.comments.create!(comment_params))
       # format.html { redirect_to @article, notice: 'Comment added!' }
       # format.json { render :show, status: :created, location: @article }
@@ -34,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :user_id)
     end
 
 end

@@ -27,6 +27,11 @@ users = User.create(
       username: 'Ben',
       password: 'Abc!299282828',
       password_confirmation: 'Abc!299282828'
+    },
+    {
+      username: 'gabriel',
+      password: 'Thecake1sal1e',
+      password_confirmation: 'Thecake1sal1e'
     }
   ]
 )
@@ -35,49 +40,41 @@ articles = Article.create(
   [
     {
       by: 'Rob',
-      text: 'There was once a gov\'t conspiracy',
       url: 'Htpps://abc',
       title: 'Flat earth. p1'
     },
     {
       by: 'Rob',
-      text: 'To keep the earth\'s flat nature',
       url: 'Https://',
       title: 'Flat earth. p2'
     },
     {
       by: 'Gabe',
-      text: 'Butterflies are the greatest alien to invade Earth',
       url: 'https://google.com',
       title: 'Butterflies or Aliens p1'
     },
     {
       by: 'Gabe',
-      text: 'In fact, the only reason that we don\'t already know, is because...',
       url: 'https://google.com',
       title: 'Butterflies or Aliens p2'
     },
     {
       by: 'Jonathon',
-      text: 'Who was the first man on the moon? Armstrong? Well I say that no one has ever been to the moon',
       url: 'https://google.com',
       title: 'Moon landing spoof'
     },
     {
       by: 'Jonathon',
-      text: 'The first man was not an American, but he was in fact a Russian',
       url: 'https://google.com',
       title: 'Russia winning space War'
     },
     {
       by: 'Ben',
-      text: 'Lights are actually a way of controlling people\'s minds and convincing them to buy more lights.',
       url: 'https://google.com',
       title: 'Bright Idea'
     },
     {
       by: 'Ben',
-      text: 'I admit that in my last post I was mistaken; it\'s not the lights that are out to get us, but in fact it\'s the sun',
       url: 'https://google.com',
       title: 'Dull Idea'
     }
