@@ -5,8 +5,11 @@ class Article < ApplicationRecord
 
   # validate that the fields must be present
   # TODO: add validation
-  validates :url, 
+  validates_format_of :url,
+    :with => URI::regexp(%w(http https)),
     presence: true
+
+
 
   validates :title,
     length: {in: 10..199},
