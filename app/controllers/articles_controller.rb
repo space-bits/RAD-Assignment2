@@ -45,12 +45,12 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @articles.update(articles_params)
-        format.html { redirect_to @articles, notice: 'This just in, articles has been changed!' }
-        format.json { render :show, status: :ok, location: @articles }
+      if @article.update(articles_params)
+        format.html { redirect_to @article, notice: 'This just in, article has been changed!' }
+        format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
-        format.json { render json: @articles.errors, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @articles.destroy
+    @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_index_url, notice: 'Removed your article!' }
       format.json { head :no_content }
@@ -68,7 +68,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_articles
-      @articles = Article.find(params[:id])
+      @article = Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
