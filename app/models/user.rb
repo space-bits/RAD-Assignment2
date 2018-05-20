@@ -7,8 +7,7 @@ class User < ApplicationRecord
   validates :username,
     length: {
       maximum: 15,
-        too_long: "must be between 2 and 15 characters"
-      }, length: {
+        too_long: "must be between 2 and 15 characters",
       minimum: 2,
         too_short: "must be between 2 and 15 characters"
     },
