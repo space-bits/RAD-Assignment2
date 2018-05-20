@@ -9,8 +9,6 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @user = User.find(session[:user_id])
 
-    fuck = 12
-    params[:user_id] = fuck
     if(@comment = @article.comments.create!(comment_params))
       # format.html { redirect_to @article, notice: 'Comment added!' }
       # format.json { render :show, status: :created, location: @article }
@@ -25,7 +23,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     # only get the 3 most recent comments
-    @comments = Comment.order('created_at DESC').limit(3)#.order(:created_at)
+    @comments = Comment.order('created_at DESC').limit(3)
   end
 
   # may be unnecesary
