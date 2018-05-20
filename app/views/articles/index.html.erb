@@ -2,29 +2,13 @@
 
 <h1>articles</h1>
 <div class="articles">
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col" colspan="3"></th>
-        <th scope="col">Title</th>
-        <th scope="col">By</th>
-        <th scope="col">Url</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <th scope="row"></th>
-          <td><%= article.id %></td>
-          <td><%= article.title %></td>
-          <td><%= article.by %></td>
-          <td><%= article.url %></td>
-          <td><%= link_to 'Show', article %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% @articles.each do |article| %>
+  <div class="article">
+    <p><%= article.title %></p>
+    <p><%= article.url %></p>
+    <p>Posted <%= time_ago_in_words(article.created_at) %> ago by <%= article.by %>.</p>
+  <div>
+<% end %>
 </div>
 
 <%= link_to 'Post New Article', new_article_path %>
