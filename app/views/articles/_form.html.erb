@@ -14,7 +14,7 @@
   <!-- Set this field to hidden and use the current users username to save -->
   <!-- Create a new hidden field to pass the username to the db -->
   <div class="field">
-    <%= form.hidden_field :by, id: session[:user_id] %>
+    <%= form.hidden_field :by, :value => get_username(session[:user_id]) %>
   </div>
 
   <div class="field">
