@@ -27,6 +27,11 @@ users = User.create(
       username: 'Ben',
       password: 'Abc!299282828',
       password_confirmation: 'Abc!299282828'
+    },
+    {
+      username: 'gabriel',
+      password: 'Thecake1sal1e',
+      password_confirmation: 'Thecake1sal1e'
     }
   ]
 )

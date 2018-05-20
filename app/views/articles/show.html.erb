@@ -22,8 +22,9 @@
 </p>
 
 <%= @comments.each do |comment| %>
-  <P>
-    <%= comment.body %>
+  <p>
+    <%= comment[:body] %>
+    <%= comment[:user_id] %>
   </p>
 <% end %>
 
