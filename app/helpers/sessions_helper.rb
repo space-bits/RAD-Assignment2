@@ -54,4 +54,8 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  def get_username(id)
+    User.find(id).username
+  end
+
 end
