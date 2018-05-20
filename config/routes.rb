@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/about', to: 'about#index'
+
+  get '/v0/items/:id', to: 'items#show'
 
   resources :articles do
     resources :comments, only: [:create]

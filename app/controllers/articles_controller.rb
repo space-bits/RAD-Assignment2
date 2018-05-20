@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @articles.save
-        format.html { redirect_to @articles, notice: 'articles article posted, more at 5.' }
+        format.html { redirect_to @articles, notice: 'article posted, more at 5.' }
         format.json { render :show, status: :created, location: @articles }
       else
         format.html { render :new }
