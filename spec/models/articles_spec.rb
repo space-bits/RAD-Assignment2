@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
   describe 'by' do
     it 'should exist in the db' do
-
+      
     end
   end
 

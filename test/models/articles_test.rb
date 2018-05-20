@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class articlesTest < ActiveSupport::TestCase
+class ArticlesTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
