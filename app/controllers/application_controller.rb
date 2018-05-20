@@ -3,4 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :require_login, :except => [:index]
 
+  def get_username(user)
+    User.find(user.id).username
+  end
 end

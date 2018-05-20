@@ -22,8 +22,9 @@
 </p>
 
 <%= @comments.each do |comment| %>
-  <P>
+  <p>
     <%= comment.body %>
+    <%= comment.by %>
   </p>
 <% end %>
 
