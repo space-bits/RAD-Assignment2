@@ -1,25 +1,10 @@
 <!-- # render all of the comments here -->
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
-<div class="comments comments-table">
-  <table>
-    <thead>
-      <tr>
-        <th>Text</th>
-        <th>Posted</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @comments.each do |comment| %>
-        <tr>
-          <td><%= comment.body %></td>
-          <td>Posted <%= time_ago_in_words comment.created_at %> ago</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="comments">
+  <% @comments.each do |comment| %>
+    <p class="comment-detail"><%= get_username(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> on <%= get_news_title(comment.article_id) %></p>
+    <p class="comment-detail"><%= comment.body %></p>
+  <% end %>
 </div>
 <br>
