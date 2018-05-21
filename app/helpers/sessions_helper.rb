@@ -55,7 +55,7 @@ module SessionsHelper
   end
 
   def get_username(id)
-    User.find(id).username
+    User.find(id).username unless id.nil?
   end
 
 end

@@ -18,10 +18,14 @@
 </p>
 
 <%= @comments.each do |comment| %>
+<div class="article-comment">
   <p>
     <%= comment[:body] %>
-    <%= comment[:user_id] %>
   </p>
+  <p>
+    Posted by <%= get_username(comment[:user_id]) %> <%= time_ago_in_words(comment[:created_at]) %> ago
+  </p>
+</div>
 <% end %>
 
 <%= form_for [@article, Comment.new] do |f| %>
