@@ -3,7 +3,7 @@
 <div class="articles">
 <% @articles.each do |article| %>
   <div class="article">
-    <p><%= article.id %> <%= article.title %></p>
+    <p><%= article.id %> <%= link_to article.title, '/news/' << article.id.to_s %></p>
     <p><%= article.url %></p>
     <p>Posted by <%= article.by %> <%= time_ago_in_words(article.created_at) %> ago.</p>
   <div>
