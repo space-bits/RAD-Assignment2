@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-    @comments = Comment.all.where(article_id: @article.id)
+    @comments = Comment.all.where(article_id: @article.id).order('comments.created_at DESC')
   end
 
   # GET /articles/new
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @articles.save
-        format.html { redirect_to @articles, notice: 'articles article posted, more at 5.' }
+        format.html { redirect_to @articles, notice: 'article posted, more at 5.' }
         format.json { render :show, status: :created, location: @articles }
       else
         format.html { render :new }

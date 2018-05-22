@@ -10,10 +10,10 @@ class Article < ApplicationRecord
     :with => URI::regexp(%w(http https))
 
 
-
-
-
   validates :title,
-    length: {in: 10..199},
+    length: {
+      in: 10..199,
+        message: "must be between 10 and 200 characters"
+    },
     presence: true
 end

@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
 
-  def setup
-     @comment = Comment.new(article_id: 1, body: "Abcdefasdj", user_id: 1)
-   end
+  # def setup
+  #   @comment = Comment.new(article_id: 1, body: "Abcdefasdj", user_id: 1)
+  # end
 
   describe 'validations' do
     subject(:comment) { Comment.new }
     before { comment.valid? }
 
-    it 'should validate presence of post' do
+    it 'should validate presence of an article' do
       expect(comment.errors[:article_id].size).to be >= 1
-      expect(comment.errors.messages[:article_id]).to include "must exist"
+      expect(comment.errors.messages[:article_id]).to include "can't be blank"
     end
 
     it 'should validate presence of body' do
@@ -35,15 +35,15 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'should have more than 3 characters not including white space' do
-      comment = Comment.new({"article_id"=>1, "body"=>"a aa", "user_id"=>1})
+      comment = Comment.new({"article_id"=>1, "body"=>"a" * 2, "user_id"=>1})
       comment.valid?
-      expect(comment.errors.messages[:body]).to include "can't be blank"
+      expect(comment.errors.messages[:body]).to include "must be between 3 and 1000 characters"
     end
 
     it 'should be less than 1000 characters' do
       comment = Comment.new({"article_id"=>1, "body"=>"a" * 1001, "user_id"=>1})
       comment.valid?
-      expect(comment.errors.messages[:body]).to include "can't be blank"
+      expect(comment.errors.messages[:body]).to include "must be between 3 and 1000 characters"
     end
   end
 
@@ -65,7 +65,7 @@ RSpec.describe Comment, type: :model do
     it 'should not be nil' do
       comment = Comment.new({"article_id"=>2, "body"=>"abcddef"})
       comment.valid?
-      expect(comment.errors.messages[:user_id]).to include "must exist"
+      expect(comment.errors.messages[:user_id]).to include "can't be blank"
     end
 
     it 'should exist in the db' do
