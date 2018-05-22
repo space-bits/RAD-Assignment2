@@ -1,9 +1,20 @@
 <!-- # render all of the comments here -->
 <p id="notice"><%= notice %></p>
 
-<% @comments.each do |comment| %>
-  <div class="comment">
-    <p class="comment-detail"><%= get_username(comment.user_id) unless comment.user_id.nil? %> <%= time_ago_in_words(comment.created_at) %> on: <%= get_news_title(comment.article_id) %></p>
-    <p class="comment-detail"><%= comment.body %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <% @comments.each do |comment| %>
+        <div class="comment">
+          <p class="comment-detail text-muted"><%= get_username(comment.user_id) unless comment.user_id.nil? %>
+            <%= time_ago_in_words(comment.created_at) %>
+            | on:
+            <%= get_news_title(comment.article_id) %></p>
+          <p class="comment-body"><%= comment.body %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
   </div>
-<% end %>
+</div>

@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<div class="articles">
-<% @articles.each do |article| %>
-  <div class="article">
-    <p><%= article.id %> <%= link_to article.title, '/news/' << article.id.to_s %></p>
-    <p><%= article.url %></p>
-    <p>Posted by <%= article.by %> <%= time_ago_in_words(article.created_at) %> ago.</p>
-  <div>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="articles col-md-10">
+    <% @articles.each do |article| %>
+      <div class="article ">
+        <p><%= article.id %>.  <%= article.title %>  (<%= article.url %>)</p>
+        <p class="text-muted" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Posted by <%= article.by %> <%= time_ago_in_words(article.created_at) %> ago.</p>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
 </div>
 
 <%= link_to 'Post New Article', new_article_path %>
