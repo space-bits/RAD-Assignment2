@@ -6,8 +6,10 @@ class Article < ApplicationRecord
   # validate that the fields must be present
   # TODO: add validation
   validates_format_of :url,
-    :with => URI::regexp(%w(http https)),
-    presence: true
+    allow_blank: true,
+    :with => URI::regexp(%w(http https))
+
+
 
 
 
