@@ -1,5 +1,20 @@
 <%= provide(:title, 'Log in') %>
-<h1>Log in</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h1>Log in</h1>
 
-<%= render 'form' %>
-New member? <%= link_to 'Sign up', signup_path %>
+          <%= render 'form' %>
+          New member?
+          <%= link_to 'Sign up', signup_path %>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+      </div>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+  </div>
+</div>
