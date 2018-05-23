@@ -1,5 +1,5 @@
-<% content_for :title, @item.title %>
 
+<% content_for :title, @item.title %>
 <div class="item">
-  <%= @item.to_json %>
+  <%= JSON.parse @item.to_s %>
 </div>
