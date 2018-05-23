@@ -11,8 +11,14 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @article = Article.find(params[:id])
-    @comments = Comment.all.where(article_id: @article.id).order('comments.created_at DESC')
+    if Article.exists?(params[:id])
+      @article = Article.find(params[:id])
+      @comments = Comment.all.where(article_id: @article.id).order('comments.created_at DESC')
+    else
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: "Article with id #{params[:id]} not found" }
+      end
+    end
   end
 
   # GET /articles/new
