@@ -18,8 +18,8 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: "form-control", id: "password", placeholder: "Enter your password" %>
 
-    <%= f.label :password_confirmation, "Password Confirmation", class: "form-control", id: "password", placeholder: "Enter your password again" %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation, "Password Confirmation" %>
+    <%= f.password_field :password_confirmation, class: "form-control", id: "password", placeholder: "Enter your password again"%>
 
     <%= f.submit "Create Account", class: "btn btn-primary" %>
   <% end %>

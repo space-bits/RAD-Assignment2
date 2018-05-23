@@ -1,28 +1,22 @@
 <% content_for :title, @article.title %>
 <p id="notice"><%= notice %></p>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
 </p>
-
 
 <p>
   <strong>Url:</strong>
   <%= @article.url %>
 </p>
 
-
 <p>
   <strong>Author:</strong>
   <%= @article.by %>
 </p>
 
-<%= @comments.each do |comment| %>
-  <p>
-    <%= comment[:body] %>
-    <%= comment[:user_id] %>
-  </p>
-<% end %>
+<%= render 'comment', comment: @comments %>
 
 <%= form_for [@article, Comment.new] do |f| %>
   <p>

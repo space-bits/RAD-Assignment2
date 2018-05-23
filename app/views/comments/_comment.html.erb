@@ -4,5 +4,5 @@
     <em>Editted <%= time_ago_in_words(comment.updated_at) %> ago</em>
   <%= end %>
   <%= comment.body %>
-  by <%= comment.Users_username %>
+  by <%= get_username(comment.user_id) %>
 </p>

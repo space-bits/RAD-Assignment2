@@ -1,5 +1,18 @@
-<h1>Post a new article</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-<%= render 'form', article: @articles %>
+          <h1>Post a new article</h1>
 
-<%= link_to 'Back', articles_path %>
+          <%= render 'form', article: @articles %>
+
+          <%= link_to 'Back', articles_path %>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+    </div>
+  </div>

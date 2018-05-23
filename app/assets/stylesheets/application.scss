@@ -12,15 +12,20 @@
  *
  */
 
-// @import 'bootstrap';
+@import "bootstrap";
 
 // comments
-#comment {
-  border-bottom-width: 20px;
-  border-color: black;
-  border-style: dotted;
-  margin-bottom: 10px;
-  width: 100%;
+.comment {
+
+  padding: 10px;
+  padding-bottom: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.comment-body {
+  margin-left: 10px
+
 }
 
 .nav {
@@ -42,4 +47,15 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+.article{
+  padding: 10px;
+  padding-bottom: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.container-fluid{
+  padding-top: 30px;
 }
