@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.order('articles.created_at DESC')
+    @articles = Article.all.order('articles.created_at DESC').reverse
   end
 
   # GET /articles/1
