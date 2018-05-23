@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
+  skip_before_action :require_login
 
   def show
-    type = "article"
-    @type = type
-    if type.downcase.eql? "article"
-      @item = Article.find(params[:id])
-    elsif type.downcase.eql? "comment"
-      @item = Comment.find(params[:id])
+    if Article.exists?(params[:id])
+      render json: Article.find(params[:id])
+    elsif Comment.exists?(params[:id])
+      render json: Comment.find(params[:id])
+    else
+      render json: "{ \"errors\" : {\"message\" : \"Item doesn\'t exist\"} }"
     end
   end
 
