@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
     if Article.exists?(params[:id])
       render json: Article.find(params[:id])
     elsif Comment.exists?(params[:id])
+      # ['article_id LIKE ?', "%#{params[:id]}%"]
+      # possibly we have to rely on the article_id
       render json: Comment.find(params[:id])
     else
       render json: "{ \"errors\" : {\"message\" : \"Item doesn\'t exist\"} }"
