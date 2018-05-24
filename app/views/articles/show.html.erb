@@ -25,7 +25,7 @@
       <%= f.submit "Submit comment", class: "btn btn-primary col-md-2" %>
       <% end %>
       <div>
-        
+
         <%= @comments.each do |comment| %>
           <%= comment[:body] %>
           <%= comment[:user_id] %>
