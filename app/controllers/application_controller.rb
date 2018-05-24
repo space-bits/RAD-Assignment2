@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
   def get_username(user)
     User.find(user.id).username
   end
+
+  def get_user_id(username)
+    User.find_by_username(username).id if User.exists?(username: username)
+  end
 end

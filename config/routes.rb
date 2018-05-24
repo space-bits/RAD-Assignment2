@@ -22,7 +22,8 @@ Rails.application.routes.draw do
 
   get '/about', to: 'about#index'
 
-  get '/v0/items/:id', to: 'items#show'
+  get '/v0/item/:id', to: 'items#show'
+  post '/v0/item/create', to: 'items#create'
 
   resources :articles do
     resources :comments, only: [:create]
