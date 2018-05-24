@@ -1,5 +1,1 @@
-
-<% content_for :title, @item.title %>
-<div class="item">
-  <%= JSON.parse @item.to_s %>
-</div>
+<%= JSON.parse(@item.to_s).merge!(JSON.parse("{\"type\"=>\"#{@type}\"}")) %>
