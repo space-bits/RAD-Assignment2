@@ -20,9 +20,9 @@ class User < ApplicationRecord
 
   # alphanumeric, and special characters and
   # validate the password
-  # contain atleast 1 digit, 1 lowercase, and 1 1 uppercase letters, and between
+  # contain atleast 1 digit, 1 lowercase, and 1 uppercase letters, and between
   # unicode 20 and hex 7E
-  VALID_PASSWORD_REGEX = /\A(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E])\z/
+  VALID_PASSWORD_REGEX = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\x20-\x2B])/
   validates :password,
     length: {
       minimum: 10,

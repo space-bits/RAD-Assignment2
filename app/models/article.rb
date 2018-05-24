@@ -16,4 +16,11 @@ class Article < ApplicationRecord
         message: "must be between 10 and 200 characters"
     },
     presence: true
+
+  def to_s
+    "{ \"title\": \"#{self[:title]}\",\
+\"url\": \"#{self[:url]}\",\
+\"by\":\"#{self[:by]}\",\
+\"created_at\":\"#{self[:created_at].to_i}\" }"
+  end
 end

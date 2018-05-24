@@ -6,13 +6,12 @@
     <div class="articles col-md-10">
     <% @articles.each do |article| %>
       <div class="article ">
-        <p><%= article.id %>.  <%= article.title %>  (<%= article.url %>)</p>
+        <p><%= article.id %>.  <%= link_to article.title, article %>  (<%= link_to article.url, article.url %>)</p>
         <p class="text-muted" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Posted by <%= article.by %> <%= time_ago_in_words(article.created_at) %> ago.</p>
       </div>
     <% end %>
+    <%= link_to 'Post New Article', new_article_path %>
     </div>
     <div class="col-md-1"></div>
   </div>
 </div>
-
-<%= link_to 'Post New Article', new_article_path %>
