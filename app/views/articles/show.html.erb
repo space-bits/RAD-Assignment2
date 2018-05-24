@@ -1,37 +1,41 @@
 <% content_for :title, @article.title %>
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="articles col-md-10">
+      <!-- <p id="notice"><%= notice %></p> -->
+      <p>
+        <strong>
+          <%= @article.title %>
+          (<%= @article.url %>)
+        </strong>
+      </p>
 
+      <p class="text-muted">&nbsp;&nbsp;&nbsp;by
+        <%= @article.by %>
+        <%= time_ago_in_words(@article.created_at) %>
+        ago.
+      </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @article.url %>
-</p>
+      <%= form_for [@article, Comment.new] do |f| %>
+      <%= f.label :body, "Add a new comment!" %><br/>
+      <%= f.text_area :body, class:"form-control col-md-6", rows:4%>
+      <%= f.hidden_field :user_id, :value => session[:user_id]%>
 
+      <%= f.submit "Submit comment", class: "btn btn-primary col-md-2" %>
+      <% end %>
+      <div>
+        
+        <%= @comments.each do |comment| %>
+          <%= comment[:body] %>
+          <%= comment[:user_id] %>
+        <% end %>
 
-<p>
-  <strong>Author:</strong>
-  <%= @article.by %>
-</p>
-
-<%= @comments.each do |comment| %>
-  <p>
-    <%= comment[:body] %>
-    <%= comment[:user_id] %>
-  </p>
-<% end %>
-
-<%= form_for [@article, Comment.new] do |f| %>
-  <p>
-    <%= f.label :body, "Add a new comment!" %><br/>
-    <%= f.text_area :body %>
-    <%= f.hidden_field :user_id, :value => session[:user_id]%>
-  </p>
-  <p><%= f.submit "Add comment" %></p>
-<% end %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', news_path %>
+      </div>
+      <%= link_to 'Edit', edit_article_path(@article) %>
+      |
+      <%= link_to 'Back', news_path %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
