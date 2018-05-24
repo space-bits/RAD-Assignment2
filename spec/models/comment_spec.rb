@@ -51,13 +51,12 @@ RSpec.describe Comment, type: :model do
     it 'should not be nil' do
       comment = Comment.new({"body"=>"abcddef", "user_id"=>1})
       comment.valid?
-      expect(comment.errors.messages[:article_id]).to include "must exist"
+      expect(comment.errors.messages[:article_id]).to include "can't be blank"
     end
 
     it 'should exist in the db' do
       comment = Comment.new({"article_id"=>500, "body"=>"abcasd", "user_id"=>1})
-      comment.valid?
-      expect(comment.errors.messages[:article_id]).to include "must exist"
+      expect(Article.exists?(comment[:article_id])).to be_falsey
     end
   end
 
@@ -70,8 +69,7 @@ RSpec.describe Comment, type: :model do
 
     it 'should exist in the db' do
       comment = Comment.new({"article_id"=>2, "body"=>"abcdef", "user_id"=>102222200})
-      comment.valid?
-      expect(comment.errors.messages[:user_id]).to include "must exist"
+      expect(User.exists?(comment[:user_id])).to be_falsey
     end
   end
 

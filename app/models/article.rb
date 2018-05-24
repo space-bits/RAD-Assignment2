@@ -7,7 +7,8 @@ class Article < ApplicationRecord
   # TODO: add validation
   validates_format_of :url,
     allow_blank: true,
-    :with => URI::regexp(%w(http https))
+      :with => URI::regexp(%w(http https)),
+        message: "must be a valid url"
 
 
   validates :title,
