@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
     else
       # generate an error message
       respond_to do |format|
-        format.html { redirect_to login_url, notice: 'Failed to login!' }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render new, notice: 'Failed to login!' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
