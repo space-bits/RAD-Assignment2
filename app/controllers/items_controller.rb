@@ -2,14 +2,15 @@ class ItemsController < ApplicationController
   skip_before_action :require_login
   skip_before_action :verify_authenticity_token
 
-
   def show
     if Article.exists?(params[:id])
       @type = "news"
+
       render json: Article.find(params[:id])
     elsif Comment.exists?(params[:id])
       # ['article_id LIKE ?', "%#{params[:id]}%"]
       # possibly we have to rely on the article_id
+
       @type = "comment"
       render json: Comment.find(params[:id])
     else
