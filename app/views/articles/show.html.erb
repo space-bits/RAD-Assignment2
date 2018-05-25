@@ -26,9 +26,14 @@
       <% end %>
       <div>
 
-        <%= @comments.each do |comment| %>
-          <%= comment[:body] %>
-          <%= comment[:user_id] %>
+        <% @comments.each do |comment| %>
+        <div class="comment">
+          <p class="comment-detail text-muted">
+            <%= get_username(comment.user_id) %>
+            <%= time_ago_in_words(comment.created_at) %>
+          </p>
+          <p class="comment-body"><%= comment.body %></p>
+        </div>
         <% end %>
 
       </div>
